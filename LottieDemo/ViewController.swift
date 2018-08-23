@@ -7,19 +7,34 @@
 //
 
 import UIKit
+import Lottie
 
 class ViewController: UIViewController {
 
+	var animationView = LOTAnimationView(name: "servishero_loading")
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		// Do any additional setup after loading the view, typically from a nib.
+		
+		// Setup Lottie animaiton view
+		animationView.contentMode = .scaleAspectFill
+		animationView.frame = CGRect(x: 0, y: 0, width: 400, height: 400)
+		animationView.center = self.view.center
+		
+		// Add Lottie animation as Sub-View to View
+		view.addSubview(animationView)
+		
+		// Turn looping on
+		animationView.loopAnimation = true
+		
+		// Play Lottie Animation
+		animationView.play()
+
 	}
 
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
 	}
-
-
+	
 }
-
